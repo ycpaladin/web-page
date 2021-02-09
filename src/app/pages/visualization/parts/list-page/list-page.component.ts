@@ -1,8 +1,7 @@
 import { VisualizationService } from './../../visualization.service';
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit, Type } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
-  IDataItem,
   IDataTableColumn,
   ListPageQueryParams,
   ResponsePageData,
@@ -19,10 +18,9 @@ import { IEditView } from '../../interfaces/visualization';
     { provide: IEditView, useExisting: forwardRef(() => ListPageComponent) },
   ],
 })
-export class ListPageComponent implements OnInit, IEditView {
+export class ListPageComponent implements OnInit, IEditView<IDataTableColumn[]> {
   data$!: Observable<ResponsePageData>;
-
-  tableColumnConfig$!: Observable<IDataTableColumn>;
+  config$: Observable<IDataTableColumn[]>;
 
   editContent = DataTableEditorComponent;
 
@@ -36,8 +34,10 @@ export class ListPageComponent implements OnInit, IEditView {
       mergeMap((queryParams) => this.service.getData(queryParams)),
       shareReplay(1)
     );
-    this.tableColumnConfig$ = this.service.getPageConfig();
+    this.config$ = this.service.getPageConfig().pipe(
+      shareReplay(1)
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

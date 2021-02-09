@@ -2,12 +2,11 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  ViewChild,
-  ContentChild,
   Inject,
 } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { IEditComponent, IEditView } from '../../interfaces/visualization';
+import { PageEditorBase } from '../../base/page-editor-base';
+import { IEditView } from '../../interfaces/visualization';
 
 @Component({
   selector: 'app-part-wrap',
@@ -21,14 +20,38 @@ export class PartWrapComponent implements OnInit {
   constructor(
     @Inject(IEditView) public parent: IEditView,
     public modalService: NzModalService
-  ) {}
+  ) { }
 
   openEditFormModal(): void {
-    this.modalService.create<IEditComponent>({
-      nzTitle: '编辑',
-      nzContent: this.parent.editContent,
+    const sub$ = this.parent.config$.subscribe(configData => {
+      const modalRef = this.modalService.create<PageEditorBase>({
+        nzTitle: '编辑',
+        nzContent: this.parent.editContent,
+        nzComponentParams: {
+          configData
+        },
+        nzMaskClosable: false,
+        nzFooter: [
+          {
+            label: '取消', onClick: () => {
+              modalRef.close();
+            }
+          },
+          {
+            label: '保存',
+            disabled: (instance) => instance?.formGroup.invalid || true,
+            onClick: instance => {
+
+            }
+          }
+        ]
+      });
+      Promise.resolve().then(() => {
+        sub$.unsubscribe();
+      });
     });
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

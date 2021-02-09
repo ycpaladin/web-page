@@ -13,7 +13,7 @@ import {
 export class VisualizationService extends PageDataServiceBase<
   ListPageQueryParams,
   ResponsePageData,
-  IDataTableColumn
+  IDataTableColumn[]
 > {
   editMode$ = new BehaviorSubject<boolean>(false);
 

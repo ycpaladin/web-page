@@ -1,13 +1,17 @@
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 import { VisualizationRoutingModule } from './visualization-routing.module';
 import { VisualizationComponent } from './visualization.component';
@@ -31,7 +35,9 @@ import { ListPageComponent } from './parts/list-page/list-page.component';
     ListPageComponent,
   ],
   imports: [
-    CommonModule,
+  CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NzCardModule,
     NzButtonModule,
     NzGridModule,
@@ -39,6 +45,9 @@ import { ListPageComponent } from './parts/list-page/list-page.component';
     NzIconModule,
     NzTableModule,
     NzModalModule,
+    NzSelectModule,
+    NzInputModule,
+    NzFormModule,
     VisualizationRoutingModule,
   ],
 })

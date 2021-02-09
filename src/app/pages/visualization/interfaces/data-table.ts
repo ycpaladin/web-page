@@ -46,3 +46,10 @@ export interface FieldSort {
 }
 
 export type SortOrder = 'asc' | 'desc';
+
+export interface Option {
+  label: string;
+  value: string;
+}
+
+export type FieldTypeOptionCollection = { label: string, value: FieldType }[];

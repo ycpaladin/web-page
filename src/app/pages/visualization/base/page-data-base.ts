@@ -77,4 +77,6 @@ export abstract class PageDataServiceBase<
     );
   }
   abstract getData(params: TDataParams): Observable<TDataReturn>;
+
+  // abstract get
 }

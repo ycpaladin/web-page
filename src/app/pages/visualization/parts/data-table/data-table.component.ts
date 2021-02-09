@@ -9,9 +9,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { FieldSort, IDataTableColumn } from '../../interfaces/data-table';
-import { IEditComponent, IEditView } from '../../interfaces/visualization';
 import { ResponsePageData } from './../../interfaces/data-table';
-import { DataTableEditorComponent } from '../data-table-editor/data-table-editor.component';
 import { NzModalService } from 'ng-zorro-antd/modal';
 
 const defaultTableData: ResponsePageData = {
