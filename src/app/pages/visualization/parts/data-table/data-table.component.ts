@@ -3,12 +3,10 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
-  Type,
-  forwardRef,
   Output,
   EventEmitter,
 } from '@angular/core';
-import { FieldSort, IDataTableColumn } from '../../interfaces/data-table';
+import { FieldSort, DataTableColumn } from '../../interfaces/data-table';
 import { ResponsePageData } from './../../interfaces/data-table';
 import { NzModalService } from 'ng-zorro-antd/modal';
 
@@ -29,7 +27,7 @@ const defaultTableData: ResponsePageData = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataTableComponent implements OnInit {
-  @Input() cyTableConfig!: IDataTableColumn[];
+  @Input() cyTableConfig!: DataTableColumn[];
   @Input() cyTableData!: ResponsePageData;
   @Output() cyPageIndexChange = new EventEmitter<number>();
   @Output() cyPageSizeChange = new EventEmitter<number>();

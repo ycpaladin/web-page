@@ -1,8 +1,9 @@
+import { FieldType } from './../../interfaces/data-table';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormArray } from '@angular/forms';
 import { PageEditorBase } from '../../base/page-editor-base';
-import { PagePropertiesFormBase } from '../../base/properties-form-base';
-import { IDataTableColumn } from '../../interfaces/data-table';
+import { FormBase } from '../../base/form-base';
+import { DataTableColumn } from '../../interfaces/data-table';
 import { ListPagePropertiesService } from '../../services/list-page-properties.service';
 
 @Component({
@@ -10,22 +11,25 @@ import { ListPagePropertiesService } from '../../services/list-page-properties.s
   templateUrl: './data-table-editor.component.html',
   styleUrls: ['./data-table-editor.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    { provide: PagePropertiesFormBase, useClass: ListPagePropertiesService }
-  ]
+  providers: [{ provide: FormBase, useClass: ListPagePropertiesService }],
 })
-export class DataTableEditorComponent extends PageEditorBase<IDataTableColumn[]> implements OnInit {
-
+export class DataTableEditorComponent
+  extends PageEditorBase<DataTableColumn[]>
+  implements OnInit {
   get configAray(): FormArray {
     return this.formGroup.get('configs') as FormArray;
   }
 
-  constructor(public service: PagePropertiesFormBase) {
+  addField(type: FieldType): void {
+    const column = this.service.createColumn(type);
+    this.configAray.push(column);
+  }
+
+  constructor(public service: ListPagePropertiesService) {
     super(service);
   }
 
   ngOnInit(): void {
     super.ngOnInit();
   }
-
 }

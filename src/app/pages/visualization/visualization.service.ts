@@ -3,8 +3,7 @@ import { Injectable, Injector } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { PageDataServiceBase } from './base/page-data-base';
 import {
-  IDataItem,
-  IDataTableColumn,
+  DataTableColumn,
   ListPageQueryParams,
   ResponsePageData,
 } from './interfaces/data-table';
@@ -13,7 +12,7 @@ import {
 export class VisualizationService extends PageDataServiceBase<
   ListPageQueryParams,
   ResponsePageData,
-  IDataTableColumn[]
+  DataTableColumn[]
 > {
   editMode$ = new BehaviorSubject<boolean>(false);
 

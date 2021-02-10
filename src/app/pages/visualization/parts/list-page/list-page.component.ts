@@ -2,12 +2,12 @@ import { VisualizationService } from './../../visualization.service';
 import { Component, forwardRef, OnInit, Type } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
-  IDataTableColumn,
+  DataTableColumn,
   ListPageQueryParams,
   ResponsePageData,
 } from '../../interfaces/data-table';
 import { mergeMap, map, shareReplay } from 'rxjs/operators';
-import { DataTableEditorComponent } from '../data-table-editor/data-table-editor.component';
+import { DataTableEditorComponent } from '../../editor/data-table-editor/data-table-editor.component';
 import { IEditView } from '../../interfaces/visualization';
 
 @Component({
@@ -18,9 +18,9 @@ import { IEditView } from '../../interfaces/visualization';
     { provide: IEditView, useExisting: forwardRef(() => ListPageComponent) },
   ],
 })
-export class ListPageComponent implements OnInit, IEditView<IDataTableColumn[]> {
+export class ListPageComponent implements OnInit, IEditView<DataTableColumn[]> {
   data$!: Observable<ResponsePageData>;
-  config$: Observable<IDataTableColumn[]>;
+  config$: Observable<DataTableColumn[]>;
 
   editContent = DataTableEditorComponent;
 

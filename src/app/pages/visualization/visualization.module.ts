@@ -20,7 +20,7 @@ import { Part2Component } from './parts/part2/part2.component';
 import { PartWrapComponent } from './parts/part-wrap/part-wrap.component';
 import { DataTableComponent } from './parts/data-table/data-table.component';
 import { CellDataPipe } from './pipes/cell-data.pipe';
-import { DataTableEditorComponent } from './parts/data-table-editor/data-table-editor.component';
+import { DataTableEditorComponent } from './editor/data-table-editor/data-table-editor.component';
 import { ListPageComponent } from './parts/list-page/list-page.component';
 
 @NgModule({

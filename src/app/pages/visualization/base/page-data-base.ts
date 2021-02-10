@@ -5,7 +5,11 @@ import { Observable, of } from 'rxjs';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { indexOf, isFunction } from 'lodash';
 import { dealData } from '../utils/func';
-import { IDataItem, IDataTableColumn, ResponseData } from './../interfaces/data-table';
+import {
+  IDataItem,
+  IDataTableColumn,
+  ResponseData,
+} from './../interfaces/data-table';
 
 export abstract class PageDataServiceBase<
   TDataParams,
@@ -43,15 +47,17 @@ export abstract class PageDataServiceBase<
         //   })
         return of<ResponseData<TDataConfig>>({
           data: [
-            { title: 'id', fieldName: 'id' },
-            {
-              title: '用户名',
-              fieldName: (item: IDataItem, index: number, array: IDataItem[]) => `Hello, ${item.name}_${index}_${array.length}`,
-            },
-            {
-              title: '日期',
-              fieldName: (item: IDataItem, index: number, array: IDataItem[]) => `Hello, ${item.name}_${index}_${array.length}`,
-            },
+            // { title: 'id', fieldName: 'id' },
+            // {
+            //   title: '用户名',
+            //   fieldName: (item: IDataItem, index: number, array: IDataItem[]) =>
+            //     `Hello, ${item.name}_${index}_${array.length}`,
+            // },
+            // {
+            //   title: '日期',
+            //   fieldName: (item: IDataItem, index: number, array: IDataItem[]) =>
+            //     `Hello, ${item.name}_${index}_${array.length}`,
+            // },
           ] as any,
           result: 'ok',
         }).pipe(
@@ -76,6 +82,30 @@ export abstract class PageDataServiceBase<
       })
     );
   }
+
+  savePageConfig(config: TDataConfig): Observable<TDataConfig> {
+    const { data } = this.injector.get(ActivatedRoute);
+    return data.pipe(
+      map((d) => d.pageId as string),
+      tap((pageId) =>
+        sessionStorage.setItem(
+          pageId,
+          JSON.stringify(
+            config,
+            (key, value) => {
+              if (isFunction(value)) {
+                return value.toString();
+              }
+              return value;
+            },
+            2
+          )
+        )
+      ),
+      mergeMap(() => of(config))
+    );
+  }
+
   abstract getData(params: TDataParams): Observable<TDataReturn>;
 
   // abstract get
