@@ -11,7 +11,10 @@ import { ListPagePropertiesService } from '../../services/list-page-properties.s
   templateUrl: './data-table-editor.component.html',
   styleUrls: ['./data-table-editor.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: FormBase, useClass: ListPagePropertiesService }],
+  providers: [
+    ListPagePropertiesService,
+    { provide: FormBase, useExisting: ListPagePropertiesService }
+  ],
 })
 export class DataTableEditorComponent
   extends PageEditorBase<DataTableColumn[]>
