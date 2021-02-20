@@ -2,6 +2,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -22,6 +23,7 @@ import { ListPageComponent } from './pages/list-page.component';
 import { FieldComponent } from './components/fields/field.component';
 import { CellDataPipe } from './core/pipes/cell-data.pipe';
 import { EditableLayoutComponent } from './components/layout/editable-layout.component';
+import { IndexFieldComponent } from './components/fields/index-field.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { EditableLayoutComponent } from './components/layout/editable-layout.com
     ListPageComponent,
     FieldComponent,
     EditableLayoutComponent,
+    IndexFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,7 @@ import { EditableLayoutComponent } from './components/layout/editable-layout.com
     NzButtonModule,
     NzIconModule,
     NzCheckboxModule,
+    NzRadioModule,
     NzDropDownModule,
   ],
   exports: [ListPageComponent],

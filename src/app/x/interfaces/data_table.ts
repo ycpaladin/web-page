@@ -1,6 +1,6 @@
-import { DateColumn, IDataItem, NumberColumn, TextColumn } from './field';
+import { DateColumn, IDataItem, IndexColumn, NumberColumn, TextColumn } from './field';
 
-export type DataTableColumn = TextColumn | DateColumn | NumberColumn | NumberColumn;
+export type DataTableColumn = IndexColumn | TextColumn | DateColumn | NumberColumn | NumberColumn;
 
 
 export interface ListPageInfo {

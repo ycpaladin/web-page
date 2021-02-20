@@ -1,17 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { isFunction } from 'lodash';
-import { IData, IDataItem } from '../../interfaces/field';
+import { DataTableColumn } from '../../interfaces/data_table';
+import { IDataItem } from '../../interfaces/field';
+import { CY_FIELD_RENDER } from '../consts/field';
 
 @Pipe({
   name: 'cellData'
 })
 export class CellDataPipe implements PipeTransform {
 
-  transform(data: IDataItem, fieldNameOrFunc: string | IData, index: number, array: IDataItem[]): unknown {
-    if (isFunction(fieldNameOrFunc)) {
-      return fieldNameOrFunc(data, index, array);
+  transform(data: IDataItem, columnConfig: DataTableColumn, index: number, array: IDataItem[]): string {
+    // const {} =
+    // if (isFunction(fieldNameOrFunc)) {
+    //   return fieldNameOrFunc(data, index, array);
+    // }
+    // return data[fieldNameOrFunc];
+
+    const { fieldType } = columnConfig;
+    const render = CY_FIELD_RENDER.get(fieldType);
+    if (isFunction(render)) {
+      return render(data, columnConfig, index);
     }
-    return data[fieldNameOrFunc];
+    return '';
   }
 
 }

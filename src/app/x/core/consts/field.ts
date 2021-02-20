@@ -1,7 +1,7 @@
 import { Type } from '@angular/core';
 import { isString } from 'lodash';
 import { DataTableColumn } from '../../interfaces/data_table';
-import { FieldFormCreater, FieldType } from '../../interfaces/field';
+import { FieldFormCreater, FieldRender, FieldType } from '../../interfaces/field';
 import { FieldControlBase } from '../base/field-base';
 import { DEFAULT_FIELD } from './default_field';
 
@@ -13,6 +13,8 @@ export const CY_FIEID_FORM_CREATER = new Map<
   FieldType,
   FieldFormCreater<any>
 >();
+
+export const CY_FIELD_RENDER = new Map<FieldType, FieldRender<any>>();
 
 export const createFieldFormFunc = (fieldTypeOrFieldColumn: FieldType | DataTableColumn) => {
   const nextFieldType = isString(fieldTypeOrFieldColumn) ? fieldTypeOrFieldColumn : fieldTypeOrFieldColumn.fieldType;

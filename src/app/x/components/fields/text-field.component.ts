@@ -5,7 +5,6 @@ import { FieldDefinition } from '../../core/decorators/field';
 
 @FieldDefinition(TEXT_FIELD_METADATA)
 @Component({
-  selector: 'app-text-field',
   template: `
     <app-base-field [cyFormGroup]="cyFormGroup"></app-base-field>
     <ng-container [formGroup]="cyFormGroup.get('metadata')">

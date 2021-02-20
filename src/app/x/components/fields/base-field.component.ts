@@ -17,7 +17,7 @@ import {
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzSpan="8" nzRequired> 绑定数据字段 </nz-form-label>
+        <nz-form-label nzSpan="8" [nzRequired]="cyFormGroup.get('fieldName')?.enabled"> 绑定数据字段 </nz-form-label>
         <nz-form-control nzSpan="16">
           <input nz-input formControlName="fieldName" />
         </nz-form-control>
@@ -35,7 +35,9 @@ import {
 export class BaseFieldComponent implements OnInit {
   @Input() cyFormGroup!: FormGroup;
 
-  constructor() {}
+  constructor() {
+    // this.cyFormGroup.get('fieldName')?.enabled
+  }
 
   ngOnInit(): void {}
 }

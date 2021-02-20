@@ -23,7 +23,7 @@ import { ListPageConfigData } from '../interfaces/list_page';
         <tbody>
           <tr *ngFor="let item of basicTable.data; let index = index">
             <td *ngFor="let conf of cyTableConfig.fields">
-              {{ item | cellData: conf.fieldName:index:cyTableData.data }}
+              {{ item | cellData: conf:index:cyTableData.data }}
             </td>
           </tr>
         </tbody>
