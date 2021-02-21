@@ -14,16 +14,20 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
-import { TextFieldComponent } from './components/fields/text-field.component';
-import { BaseFieldComponent } from './components/fields/base-field.component';
+import { TextFieldComponent } from './components/field/forms/text-field.component';
+import { IndexFieldComponent } from './components/field/forms/index-field.component';
+import { BaseFieldComponent } from './components/field/base-field.component';
 import { DataTableComponent } from './components/data-table.component';
 import { DataTableEditorComponent } from './components/editor/data-table-editor.component';
 import { PartWrapComponent } from './components/part-wrap.component';
 import { ListPageComponent } from './pages/list-page.component';
-import { FieldComponent } from './components/fields/field.component';
+import { FieldComponent } from './components/field/field.component';
 import { CellDataPipe } from './core/pipes/cell-data.pipe';
 import { EditableLayoutComponent } from './components/layout/editable-layout.component';
-import { IndexFieldComponent } from './components/fields/index-field.component';
+import { TextFieldRenderComponent } from './components/field/render/text-field-render.component';
+import { IndexFieldRenderComponent } from './components/field/render/index-field-render.component';
+import { FieldRenderPipe } from './core/pipes/field-render.pipe';
+import { FieldRenderInjectorPipe } from './core/pipes/field-render-injector.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { IndexFieldComponent } from './components/fields/index-field.component';
     FieldComponent,
     EditableLayoutComponent,
     IndexFieldComponent,
+    TextFieldRenderComponent,
+    IndexFieldRenderComponent,
+    FieldRenderPipe,
+    FieldRenderInjectorPipe,
   ],
   imports: [
     CommonModule,

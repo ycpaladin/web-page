@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FieldControlBase } from '../../core/base/field-base';
-import { TEXT_FIELD_METADATA } from '../../core/consts/field_definition';
-import { FieldDefinition } from '../../core/decorators/field';
+import { FieldControlBase } from '../../../core/base/field-base';
+import { TEXT_FIELD_METADATA } from '../../../core/consts/field_definition';
+import { FieldDefinition } from '../../../core/decorators/field';
 
 @FieldDefinition(TEXT_FIELD_METADATA)
 @Component({

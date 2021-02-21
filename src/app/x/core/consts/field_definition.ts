@@ -1,6 +1,8 @@
 import { Validators, FormBuilder } from '@angular/forms';
 import { FieldBase, IFieldMetadata, IndexColumn, TextColumn } from './../../interfaces/field';
 import { DEFAULT_TEXT_FIELD, DEFAULT_INDEX_FIELD } from './default_field';
+import { IndexFieldRenderComponent } from './../../components/field/render/index-field-render.component';
+import { TextFieldRenderComponent } from './../../components/field/render/text-field-render.component';
 
 
 
@@ -38,9 +40,7 @@ export const TEXT_FIELD_METADATA: IFieldMetadata<TextColumn> = {
       }
     );
   },
-  render: (data, config) => {
-    return data[config.fieldName];
-  }
+  render: TextFieldRenderComponent
 };
 
 
@@ -64,12 +64,5 @@ export const INDEX_FIELD_METADATA: IFieldMetadata<IndexColumn> = {
       }
     );
   },
-  render: (data, config, index) => {
-    const { metadata: { count } } = config;
-    if (count === 'restart') {
-      return (index + 1) + '';
-    } else {
-      return ''; // TODO 需要pageIndex
-    }
-  }
+  render: IndexFieldRenderComponent
 };

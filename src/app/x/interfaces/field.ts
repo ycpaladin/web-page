@@ -1,4 +1,6 @@
+import { Type } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { DataTableColumn } from './data_table';
 
 export interface IDataItem {
   id: number;
@@ -66,11 +68,24 @@ export type FieldFormCreater<T> = (
   data: T
 ) => (fb: FormBuilder) => FormGroup;
 
-export type FieldRender<T> = (data: IDataItem, config: T, index: number) => string;
+// export type FieldRender<T> = (data: IDataItem, config: T, index: number) => string;
+
+export interface IFieldRenderInjectData<C = any> {
+  data: IDataItem;
+  config: C;
+  array: IDataItem[];
+  index: number;
+}
+
+
+export interface IFieldRender<T> {
+  injectData: IFieldRenderInjectData<T>;
+}
+
 
 export interface IFieldMetadata<T = any> {
   fieldType: FieldType;
   displayName: string;
   formCreater: FieldFormCreater<T>;
-  render: FieldRender<T>;
+  render: Type<IFieldRender<T>>;
 }
