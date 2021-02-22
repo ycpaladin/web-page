@@ -1,27 +1,38 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { combineLatest, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
-import { CY_TABLE_FIELD_RENDER_DATA } from 'src/app/x/core/consts/token';
-import { IDataItem, IFieldRender, IFieldRenderInjectData, IndexColumn } from 'src/app/x/interfaces/field';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Inject,
+} from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+import { CY_TABLE_FIELD_RENDER_DATA } from '../../../core/consts/token';
+import {
+  IFieldRender,
+  IFieldRenderInjectData,
+  IndexColumn,
+} from '../../../interfaces/field';
 import { DataTableComponent } from '../../data-table.component';
 
 @Component({
-  template: `
-    {{value$ | async}}
-  `,
-  styles: [
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ` {{ value$ | async }} `,
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IndexFieldRenderComponent implements OnInit, IFieldRender<IndexColumn> {
-
+export class IndexFieldRenderComponent
+  implements OnInit, IFieldRender<IndexColumn> {
   value$ = new ReplaySubject<number>(1);
 
   constructor(
-    @Inject(CY_TABLE_FIELD_RENDER_DATA) public injectData: IFieldRenderInjectData<IndexColumn>,
+    @Inject(CY_TABLE_FIELD_RENDER_DATA)
+    public injectData: IFieldRenderInjectData<IndexColumn>,
     public table: DataTableComponent
   ) {
-
-    const { config: { metadata: { count } }, index } = injectData;
+    const {
+      config: {
+        metadata: { count },
+      },
+      index,
+    } = injectData;
     if (count === 'restart') {
       this.value$.next(index + 1);
     } else {
@@ -33,12 +44,9 @@ export class IndexFieldRenderComponent implements OnInit, IFieldRender<IndexColu
       // });
       // this.table.cyPageIndexChange.subscribe(console.log);
       const { cyPageIndex, cyPageSize } = table;
-      this.value$.next(((cyPageIndex - 1) * cyPageSize) + index + 1);
+      this.value$.next((cyPageIndex - 1) * cyPageSize + index + 1);
     }
   }
 
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -73,7 +73,6 @@ export type FieldFormCreater<T> = (
 export interface IFieldRenderInjectData<C = any> {
   data: IDataItem;
   config: C;
-  array: IDataItem[];
   index: number;
 }
 

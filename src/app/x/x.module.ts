@@ -22,7 +22,6 @@ import { DataTableEditorComponent } from './components/editor/data-table-editor.
 import { PartWrapComponent } from './components/part-wrap.component';
 import { ListPageComponent } from './pages/list-page.component';
 import { FieldComponent } from './components/field/field.component';
-import { CellDataPipe } from './core/pipes/cell-data.pipe';
 import { EditableLayoutComponent } from './components/layout/editable-layout.component';
 import { TextFieldRenderComponent } from './components/field/render/text-field-render.component';
 import { IndexFieldRenderComponent } from './components/field/render/index-field-render.component';
@@ -31,7 +30,6 @@ import { FieldRenderInjectorPipe } from './core/pipes/field-render-injector.pipe
 
 @NgModule({
   declarations: [
-    CellDataPipe,
     TextFieldComponent,
     BaseFieldComponent,
     DataTableComponent,
