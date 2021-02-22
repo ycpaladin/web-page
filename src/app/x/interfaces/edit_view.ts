@@ -1,6 +1,6 @@
 import { Type } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EditorBase } from '../core/base/editor-base';
+import { EditorBase } from '../core/base/editor_base';
 
 export abstract class IEditView<TPageProperties = any> {
   abstract cyEditContent: Type<EditorBase>;

@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Directive()
 // tslint:disable-next-line: directive-class-suffix
-export abstract class FieldControlBase {
+export abstract class ColumnControlBase {
   // @Input() cyConfig!: F;
   @Input() cyFormGroup!: FormGroup;
 }

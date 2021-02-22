@@ -5,9 +5,9 @@ import {
   Inject,
 } from '@angular/core';
 import { FormArray } from '@angular/forms';
-import { FormBase } from '../../core/base/form-base';
-import { EditorBase } from '../../core/base/editor-base';
-import { CY_FIELD_TYPE } from '../../core/consts/field';
+import { FormBase } from '../../core/base/form_base';
+import { EditorBase } from '../../core/base/editor_base';
+import { CY_FIELD_TYPE } from '../../core/consts/column';
 import { CY_FIELD_TYPE_LIST } from '../../core/consts/token';
 import { FieldType } from '../../interfaces/field';
 import { DataTableEditorService } from '../../core/services/data-table-editor.service';

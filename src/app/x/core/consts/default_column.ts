@@ -19,7 +19,7 @@ export const DEFAULT_TEXT_FIELD: TextColumn = {
 
 export const DEFAULT_DATE_FIELD: DateColumn = {
   ...fieldBases,
-  fieldType: 'text',
+  fieldType: 'date',
   metadata: {
     format: 'yyyy-MM-dd HH:mm:ss',
   },

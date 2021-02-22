@@ -8,7 +8,7 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
 } from '@angular/core';
-import { CY_FIELD_REGISTRY } from '../../core/consts/field';
+import { CY_FIELD_REGISTRY } from '../../core/consts/column';
 
 @Component({
   selector: 'app-field',

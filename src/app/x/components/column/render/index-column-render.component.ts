@@ -7,7 +7,7 @@ import {
 import { ReplaySubject } from 'rxjs';
 import { CY_TABLE_FIELD_RENDER_DATA } from '../../../core/consts/token';
 import {
-  IFieldRender,
+  IColumnRender,
   IFieldRenderInjectData,
   IndexColumn,
 } from '../../../interfaces/field';
@@ -19,7 +19,7 @@ import { DataTableComponent } from '../../data-table.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IndexFieldRenderComponent
-  implements OnInit, IFieldRender<IndexColumn> {
+  implements OnInit, IColumnRender<IndexColumn> {
   value$ = new ReplaySubject<number>(1);
 
   constructor(

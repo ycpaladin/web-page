@@ -14,23 +14,25 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
-import { TextFieldComponent } from './components/field/forms/text-field.component';
-import { IndexFieldComponent } from './components/field/forms/index-field.component';
-import { BaseFieldComponent } from './components/field/base-field.component';
+import { TextColumnComponent } from './components/column/forms/text-column.component';
+import { IndexColumnComponent } from './components/column/forms/index-column.component';
+import { BaseFieldComponent } from './components/column/base-column.component';
 import { DataTableComponent } from './components/data-table.component';
 import { DataTableEditorComponent } from './components/editor/data-table-editor.component';
 import { PartWrapComponent } from './components/part-wrap.component';
 import { ListPageComponent } from './pages/list-page.component';
-import { FieldComponent } from './components/field/field.component';
+import { FieldComponent } from './components/column/column.component';
 import { EditableLayoutComponent } from './components/layout/editable-layout.component';
-import { TextFieldRenderComponent } from './components/field/render/text-field-render.component';
-import { IndexFieldRenderComponent } from './components/field/render/index-field-render.component';
+import { TextFieldRenderComponent } from './components/column/render/text-column-render.component';
+import { IndexFieldRenderComponent } from './components/column/render/index-column-render.component';
 import { FieldRenderPipe } from './core/pipes/field-render.pipe';
 import { FieldRenderInjectorPipe } from './core/pipes/field-render-injector.pipe';
+import { DateColumnComponent } from './components/column/forms/date-column.component';
+import { DateColumnRenderComponent } from './components/column/render/date-column-render.component';
 
 @NgModule({
   declarations: [
-    TextFieldComponent,
+    TextColumnComponent,
     BaseFieldComponent,
     DataTableComponent,
     PartWrapComponent,
@@ -38,11 +40,13 @@ import { FieldRenderInjectorPipe } from './core/pipes/field-render-injector.pipe
     ListPageComponent,
     FieldComponent,
     EditableLayoutComponent,
-    IndexFieldComponent,
+    IndexColumnComponent,
     TextFieldRenderComponent,
     IndexFieldRenderComponent,
     FieldRenderPipe,
     FieldRenderInjectorPipe,
+    DateColumnComponent,
+    DateColumnRenderComponent,
   ],
   imports: [
     CommonModule,

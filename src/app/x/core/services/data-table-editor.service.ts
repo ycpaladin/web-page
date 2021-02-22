@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataTableColumn } from '../../interfaces/data_table';
 import { FieldType } from '../../interfaces/field';
 import { ListPageConfigData } from '../../interfaces/list_page';
-import { FormBase } from '../base/form-base';
-import { createFieldFormFunc } from '../consts/field';
+import { FormBase } from '../base/form_base';
+import { createFieldFormFunc } from '../consts/column';
 
 @Injectable()
 export class DataTableEditorService implements FormBase<ListPageConfigData> {

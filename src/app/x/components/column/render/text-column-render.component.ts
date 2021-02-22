@@ -7,7 +7,7 @@ import {
 import { ReplaySubject } from 'rxjs';
 import { CY_TABLE_FIELD_RENDER_DATA } from '../../../core/consts/token';
 import {
-  IFieldRender,
+  IColumnRender,
   IFieldRenderInjectData,
   TextColumn,
 } from '../../../interfaces/field';
@@ -18,7 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextFieldRenderComponent
-  implements OnInit, IFieldRender<TextColumn> {
+  implements OnInit, IColumnRender<TextColumn> {
   value$ = new ReplaySubject<string>(1);
   constructor(
     @Inject(CY_TABLE_FIELD_RENDER_DATA)

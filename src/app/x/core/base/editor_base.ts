@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { FormBase } from './form-base';
+import { FormBase } from './form_base';
 import { Directive, Input, OnInit } from '@angular/core';
 
 @Directive()

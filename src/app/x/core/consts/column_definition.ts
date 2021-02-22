@@ -1,8 +1,9 @@
 import { Validators, FormBuilder } from '@angular/forms';
-import { FieldBase, IFieldMetadata, IndexColumn, TextColumn } from './../../interfaces/field';
-import { DEFAULT_TEXT_FIELD, DEFAULT_INDEX_FIELD } from './default_field';
-import { IndexFieldRenderComponent } from './../../components/field/render/index-field-render.component';
-import { TextFieldRenderComponent } from './../../components/field/render/text-field-render.component';
+import { DateColumn, FieldBase, IFieldMetadata, IndexColumn, TextColumn } from '../../interfaces/field';
+import { DEFAULT_TEXT_FIELD, DEFAULT_INDEX_FIELD, DEFAULT_DATE_FIELD } from './default_column';
+import { IndexFieldRenderComponent } from '../../components/column/render/index-column-render.component';
+import { TextFieldRenderComponent } from '../../components/column/render/text-column-render.component';
+import { DateColumnRenderComponent } from '../../components/column/render/date-column-render.component';
 
 
 
@@ -65,4 +66,27 @@ export const INDEX_FIELD_METADATA: IFieldMetadata<IndexColumn> = {
     );
   },
   render: IndexFieldRenderComponent
+};
+
+
+export const DATE_COLUMN_METADATA: IFieldMetadata<DateColumn> = {
+  fieldType: 'date',
+  displayName: '日期',
+  formCreater: (data) => (fb) => {
+    const {
+      fieldType, fieldName, defaultValue,
+      metadata: { format },
+    } = data || DEFAULT_DATE_FIELD;
+    return fieldFormCreater(fb, data)(
+      {
+        fieldType: [fieldType],
+        fieldName: [fieldName],
+        defaultValue: [defaultValue],
+        metadata: fb.group({
+          format: [format],
+        }),
+      }
+    );
+  },
+  render: DateColumnRenderComponent
 };

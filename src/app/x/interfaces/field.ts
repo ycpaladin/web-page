@@ -77,7 +77,7 @@ export interface IFieldRenderInjectData<C = any> {
 }
 
 
-export interface IFieldRender<T> {
+export interface IColumnRender<T> {
   injectData: IFieldRenderInjectData<T>;
 }
 
@@ -86,5 +86,5 @@ export interface IFieldMetadata<T = any> {
   fieldType: FieldType;
   displayName: string;
   formCreater: FieldFormCreater<T>;
-  render: Type<IFieldRender<T>>;
+  render: Type<IColumnRender<T>>;
 }

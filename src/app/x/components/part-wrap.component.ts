@@ -5,7 +5,7 @@ import {
   Inject,
 } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { EditorBase } from '../core/base/editor-base';
+import { EditorBase } from '../core/base/editor_base';
 import { EditableService } from '../core/services/editable.service';
 import { IEditView } from '../interfaces/edit_view';
 import { PageDataService } from '../interfaces/page';

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DataTableColumn } from '../../interfaces/data_table';
-import { CY_FIELD_RENDER } from '../consts/field';
+import { CY_FIELD_RENDER } from '../consts/column';
 
 @Pipe({
   name: 'fieldRender'

@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FieldControlBase } from '../../../core/base/field-base';
-import { TEXT_FIELD_METADATA } from '../../../core/consts/field_definition';
-import { FieldDefinition } from '../../../core/decorators/field';
+import { ColumnControlBase } from '../../../core/base/column_base';
+import { TEXT_FIELD_METADATA } from '../../../core/consts/column_definition';
+import { ColumnDefinition } from '../../../core/decorators/column';
 
-@FieldDefinition(TEXT_FIELD_METADATA)
+@ColumnDefinition(TEXT_FIELD_METADATA)
 @Component({
   template: `
-    <app-base-field [cyFormGroup]="cyFormGroup"></app-base-field>
+    <app-base-column [cyFormGroup]="cyFormGroup"></app-base-column>
     <ng-container [formGroup]="cyFormGroup.get('metadata')">
       <nz-form-item>
         <nz-form-label nzSpan="8">格式化</nz-form-label>
@@ -18,7 +18,7 @@ import { FieldDefinition } from '../../../core/decorators/field';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextFieldComponent extends FieldControlBase implements OnInit {
+export class TextColumnComponent extends ColumnControlBase implements OnInit {
   constructor() {
     super();
   }

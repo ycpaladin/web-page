@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FieldControlBase } from '../../../core/base/field-base';
-import { INDEX_FIELD_METADATA } from '../../../core/consts/field_definition';
-import { FieldDefinition } from '../../../core/decorators/field';
+import { ColumnControlBase } from '../../../core/base/column_base';
+import { INDEX_FIELD_METADATA } from '../../../core/consts/column_definition';
+import { ColumnDefinition } from '../../../core/decorators/column';
 
-@FieldDefinition(INDEX_FIELD_METADATA)
+@ColumnDefinition(INDEX_FIELD_METADATA)
 @Component({
   template: `
-    <app-base-field [cyFormGroup]="cyFormGroup"></app-base-field>
+    <app-base-column [cyFormGroup]="cyFormGroup"></app-base-column>
     <ng-container [formGroup]="cyFormGroup.get('metadata')">
       <nz-form-item>
         <nz-form-label nzSpan="8">序号计数方式</nz-form-label>
@@ -23,7 +23,7 @@ import { FieldDefinition } from '../../../core/decorators/field';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IndexFieldComponent extends FieldControlBase implements OnInit {
+export class IndexColumnComponent extends ColumnControlBase implements OnInit {
 
   constructor() {
     super();

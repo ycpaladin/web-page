@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-base-field',
+  selector: 'app-base-column',
   template: `
     <form nz-form [formGroup]="cyFormGroup" nzLayout="horizontal">
       <nz-form-item>
